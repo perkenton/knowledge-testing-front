@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IsUserRegisteredService } from './services/isUserRegistered.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'knowledge-testing-front';
+  constructor(
+    private readonly isUserRegisteredService: IsUserRegisteredService
+  ) {}
+
+  isRegistered: boolean = false;
+  setIsRegistered = this.isUserRegisteredService.isUserRegistered$.subscribe((value) => this.isRegistered = value);
+
 }
