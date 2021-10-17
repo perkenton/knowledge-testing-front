@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { IsUserRegisteredService } from '../services/isUserRegistered.service';
 
 // TODO: тип импортировать с бэка
 export type User = {
@@ -14,7 +15,11 @@ export type User = {
   // interpolation: [ '{{', '}}' ],
 })
 export class UserRegistrationComponent {
-  // TODO: сделать форму через FormBuilder
+  constructor(
+    private readonly isUserRegisteredService: IsUserRegisteredService
+  ) {}
+
+  // TODO: сделать форму через FormBuilder с человеческой валидацией
 
   user: User = {
     surname: '',
@@ -24,6 +29,7 @@ export class UserRegistrationComponent {
 
   formSubmit() {
     console.log('name', this.user);
+    this.isUserRegisteredService.setRegistered(true);
   }
 
 }
