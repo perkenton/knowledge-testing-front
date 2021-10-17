@@ -1,3 +1,44 @@
 <div class="wrapper">
+  <h2>Регистрация пользователя</h2>
 
+  <form class="form">
+    <mat-form-field class="form-field" appearance="fill">
+      <mat-label>Фамилия</mat-label>
+      <input
+        type="text"
+        matInput
+        [(ngModel)]="user.surname"
+        name="surname"
+        required
+      >
+      <mat-error>Введите фамилию</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field" appearance="fill">
+      <mat-label>Имя</mat-label>
+      <input
+        type="text"
+        matInput
+        [(ngModel)]="user.name"
+        name="name"
+        required
+      >
+      <mat-error>Введите имя</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field" appearance="fill">
+      <mat-label>Отчество</mat-label>
+      <input
+        type="text"
+        matInput
+        [(ngModel)]="user.patronymic"
+        name="patronymic"
+        required
+      >
+      <mat-error>Введите отчество</mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="formSubmit()">Отправить</button>
+
+  </form>
 </div>

@@ -3,5 +3,19 @@
 }
 
 .title {
+  font-size: 22px;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 16px;
+}
 
+.form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.form-field {
+  width: 100%;
+  margin-bottom: 12px;
 }
