@@ -10,6 +10,7 @@
         [(ngModel)]="user.surname"
         name="surname"
         required
+        #surname="ngModel"
       >
       <mat-error>Введите фамилию</mat-error>
     </mat-form-field>
@@ -22,6 +23,7 @@
         [(ngModel)]="user.name"
         name="name"
         required
+        #name="ngModel"
       >
       <mat-error>Введите имя</mat-error>
     </mat-form-field>
@@ -34,11 +36,20 @@
         [(ngModel)]="user.patronymic"
         name="patronymic"
         required
+        #patronymic="ngModel"
       >
       <mat-error>Введите отчество</mat-error>
     </mat-form-field>
 
-    <button mat-raised-button color="primary" (click)="formSubmit()">Отправить</button>
+    <button
+      type="submit"
+      mat-raised-button
+      color="primary"
+      (click)="formSubmit()"
+      [disabled]="!((!surname.invalid && surname.dirty) && (!name.invalid && name.dirty) && (!patronymic.invalid && patronymic.dirty))"
+    >
+      Вперёд!
+    </button>
 
   </form>
 </div>
